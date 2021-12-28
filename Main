@@ -1,0 +1,389 @@
+import telebot
+import random
+from telebot import types
+
+bot = telebot.TeleBot('2107847631:AAGiFLYmnCIvMXKl985FnR3kvNIags5dGXc')
+chet = 0
+perehod = 0
+
+# Загружаем список интересных фактов
+# Загружаем список поговорок
+f = open('Gf.txt', 'r', encoding='UTF-8')
+gift_NG = f.read().split('\n')
+f.close()
+f = open('Vkustno.txt', 'r', encoding='UTF-8')
+vkus_DR = f.read().split('\n')
+f.close()
+f = open('Sport.txt', 'r', encoding='UTF-8')
+sport_DR = f.read().split('\n')
+f.close()
+f = open('Hozaika.txt', 'r', encoding='UTF-8')
+hoz_DR = f.read().split('\n')
+f.close()
+f = open('Kurevo.txt', 'r', encoding='UTF-8')
+kur_DR = f.read().split('\n')
+f.close()
+f = open('Ogorod.txt', 'r', encoding='UTF-8')
+ogorod_DR = f.read().split('\n')
+f.close()
+f = open('Risovanie.txt', 'r', encoding='UTF-8')
+ris_DR = f.read().split('\n')
+f.close()
+f = open('Mashina.txt', 'r', encoding='UTF-8')
+mashina_DR = f.read().split('\n')
+f.close()
+f = open('Kollekcioneri.txt', 'r', encoding='UTF-8')
+kollek_DR = f.read().split('\n')
+f.close()
+f = open('Krasota.txt', 'r', encoding='UTF-8')
+krasota_DR = f.read().split('\n')
+f.close()
+f = open('Nastolki.txt', 'r', encoding='UTF-8')
+nastol_DR = f.read().split('\n')
+f.close()
+f = open('Office.txt', 'r', encoding='UTF-8')
+ofis_DR = f.read().split('\n')
+f.close()
+f = open('OtdihBiuti.txt', 'r', encoding='UTF-8')
+biutiotdih_DR = f.read().split('\n')
+f.close()
+f = open('Pitomci.txt', 'r', encoding='UTF-8')
+pet_DR = f.read().split('\n')
+f.close()
+f = open('Sugar daddy.txt', 'r', encoding='UTF-8')
+daddy_DR = f.read().split('\n')
+f.close()
+f = open('Risovanie.txt', 'r', encoding='UTF-8')
+ris_DR = f.read().split('\n')
+f.close()
+
+# Команда start
+@bot.message_handler(commands=["version"])
+def ver(v):
+    bot.send_message(v.chat.id, 'Ver 0.0.9')
+    bot.send_message(v.chat.id, "Закрытое альфа тестирование")
+
+
+@bot.message_handler(commands=["help"])
+def help(n):
+    bot.send_message(n.chat.id, 'Введите /start для начала работы')
+    bot.send_message(n.chat.id, 'В данный момент онлаин поддержка недоступна')
+    bot.send_message(n.chat.id, 'Чтобы оставить свой отзыв напишите на почту popova.np0062@gmail.com')
+
+
+
+@bot.message_handler(commands=["start"])
+def start(m, res=False):
+    # Добавляем две кнопки
+    bot.send_message(m.chat.id, 'Привет')
+    markup = types.ReplyKeyboardMarkup(resize_keyboard=True)
+    item1 = types.KeyboardButton("Новый год")
+    #item2 = types.KeyboardButton("23 Февраля")
+    #item3 = types.KeyboardButton("8 марта")
+    item4 = types.KeyboardButton("День рождения")
+    markup.add(item1)
+    #markup.add(item2)
+    #markup.add(item3)
+    markup.add(item4)
+    bot.send_message(m.chat.id, 'Выбери праздник, для которого нужен подарок ', reply_markup=markup)
+
+
+# Получение сообщений от юзера
+
+@bot.message_handler(content_types=["text"])
+def Vse(g):
+    global chet
+    photo1 = open('Photo/4117.png', 'rb')
+    photo2 = open('Photo/Cht.png', 'rb')
+    photo3 = open('Photo/Podar.png', 'rb')
+    photo4 = open('Photo/Xmas.png', 'rb')
+    photo5 = open('Photo/Scale.png', 'rb')
+    photo6 = open('Photo/1587.png', 'rb')
+    photo7 = open('Photo/Ce34.png', 'rb')
+    photo10 = open('Photo/17.jpg', 'rb')
+    photo11 = open('Photo/1.jpg', 'rb')
+    photo12= open('Photo/2.jpg', 'rb')
+    photo13= open('Photo/3.jpg', 'rb')
+    photo14= open('Photo/4.jpg', 'rb')
+    photo15= open('Photo/5.jpg', 'rb')
+    photo16= open('Photo/6.jpg', 'rb')
+    photo17= open('Photo/7.jpg', 'rb')
+    photo18= open('Photo/8.jpg', 'rb')
+    photo19= open('Photo/9.jpg', 'rb')
+    photo20= open('Photo/10.jpg', 'rb')
+    photo21= open('Photo/11.jpg', 'rb')
+    photo22= open('Photo/12.jpg', 'rb')
+    photo23= open('Photo/13.jpg', 'rb')
+    photo24= open('Photo/14.jpg', 'rb')
+    photo25 = open('Photo/15.jpg', 'rb')
+    if g.text.strip() == 'Лох':
+        bot.send_message(g.chat.id, 'Сам ты лох')
+    if g.text.strip() == 'Новый год':
+        bot.send_message(g.chat.id, 'Хорошо, тогда ответь на следующие вопросы и я подберу подарок.')
+        global perehod
+        perehod = 1
+        markup = types.ReplyKeyboardMarkup(resize_keyboard=True)
+        item1 = types.KeyboardButton('Милый душевный человек, любящий жизнь, душа компании')
+        item2 = types.KeyboardButton('Карьерист, целеустремленная личность, стремится к успеху')
+        item3 = types.KeyboardButton('Домосед, ценящий домашний уют')
+        item4 = types.KeyboardButton('Продвинутая личность, в его лексиконе присутствуют такие слова, как «медитация», «астрал», «релакс»')
+        markup.add(item1, item2, item3, item4)
+        bot.send_photo(g.chat.id, photo1, caption='Ваш близкий человек:', reply_markup=markup)
+    if perehod == 1 and (g.text.strip() == 'Милый душевный человек, любящий жизнь, душа компании' or g.text.strip() == 'Карьерист, целеустремленная личность, стремится к успеху' or g.text.strip() == 'Домосед, ценящий домашний уют' or g.text.strip() == 'Продвинутая личность, в его лексиконе присутствуют такие слова, как «медитация», «астрал», «релакс»'):
+        perehod = 2
+        markup = types.ReplyKeyboardMarkup(resize_keyboard=True)
+        item1 = types.KeyboardButton(
+            'Главное — не подарок, а воспоминания, которые он вызывает. Так что тратить много не стану')
+        item2 = types.KeyboardButton('До тысячи рублей')
+        item3 = types.KeyboardButton('Максимум две тысячи')
+        item4 = types.KeyboardButton('Сумма не имеет значения, могу потратить все деньги!')
+        markup.add(item1, item2, item3, item4)
+        bot.send_photo(g.chat.id, photo2, caption='Сколько вы бы потратили на новогодний подарок близкому человеку?',
+                       reply_markup=markup)
+
+    if perehod == 2 and (g.text.strip() == 'Главное — не подарок, а воспоминания, которые он вызывает. Так что тратить много не стану' or g.text.strip() == 'До тысячи рублей' or g.text.strip() == 'Максимум две тысячи' or g.text.strip() == 'Сумма не имеет значения, могу потратить все деньги!'):
+        perehod = 3
+        markup = types.ReplyKeyboardMarkup(resize_keyboard=True)
+        item1 = types.KeyboardButton('Займусь ремонтом — есть время прибить полку, которая стоит у меня уже полгода')
+        item2 = types.KeyboardButton('Посвящу время себе')
+        item3 = types.KeyboardButton(
+            'Потрачу время максимально продуктивно: буду гулять и дышать свежим воздухом, пока есть возможность')
+        item4 = types.KeyboardButton(
+            'Посмотрю много новогодних фильмов и буду готовиться к Рождеству. А ведь еще старый Новый год!')
+        markup.add(item1, item2, item3, item4)
+        bot.send_photo(g.chat.id, photo3, caption='Чем вы планируете заняться в новогодние праздники?',
+                       reply_markup=markup)
+
+    if perehod == 3 and (g.text.strip() == 'Займусь ремонтом — есть время прибить полку, которая стоит у меня уже полгода' or g.text.strip() == 'Посвящу время себе' or g.text.strip() == 'Потрачу время максимально продуктивно: буду гулять и дышать свежим воздухом, пока есть возможность' or g.text.strip() == 'Посмотрю много новогодних фильмов и буду готовиться к Рождеству. А ведь еще старый Новый год!'):
+        perehod = 4
+        markup = types.ReplyKeyboardMarkup(resize_keyboard=True)
+        item1 = types.KeyboardButton('Когда выпадет снег')
+        item2 = types.KeyboardButton('В начале декабря. И сразу посмотрю новогодние фильмы')
+        item3 = types.KeyboardButton('В середине декабря. Без елки Новый год — не праздник!')
+        item4 = types.KeyboardButton('Нужно выделить свободный день в декабре')
+        markup.add(item1, item2, item3, item4)
+        bot.send_photo(g.chat.id, photo4, caption='Когда начнете наряжать новогоднюю елку?', reply_markup=markup)
+
+    if perehod == 4 and (g.text.strip() == 'Когда выпадет снег' or g.text.strip() == 'В начале декабря. И сразу посмотрю новогодние фильмы' or g.text.strip() == 'В середине декабря. Без елки Новый год — не праздник!' or g.text.strip() == 'Нужно выделить свободный день в декабре'):
+        perehod = 5
+        markup = types.ReplyKeyboardMarkup(resize_keyboard=True)
+        item1 = types.KeyboardButton('Живем вместе')
+        item2 = types.KeyboardButton('Очень часто!')
+        item3 = types.KeyboardButton('Ну так, мимоходом')
+        item4 = types.KeyboardButton('Часто приглашает, но не особо соглашаюсь')
+        markup.add(item1, item2, item3, item4)
+        bot.send_photo(g.chat.id, photo5, caption='Вы были в гостях у человека, которому хитите подарить подарок?',
+                       reply_markup=markup)
+
+    # if message.text.strip() == 'Милый душевный человек, любящий жизнь, душа компании':
+
+    if perehod == 5 and (g.text.strip() == 'Живем вместе' or g.text.strip() == 'Очень часто!' or g.text.strip() == 'Ну так, мимоходом' or g.text.strip() == 'Часто приглашает, но не особо соглашаюсь'):
+        perehod = 6
+        markup = types.ReplyKeyboardMarkup(resize_keyboard=True)
+        item1 = types.KeyboardButton('С елкой')
+        item2 = types.KeyboardButton('Ну конечно же со снегом')
+        item3 = types.KeyboardButton('С теплыми вечерами вместе')
+        item4 = types.KeyboardButton('Подарки!')
+        markup.add(item1, item2, item3, item4)
+        bot.send_photo(g.chat.id, photo6, caption='С чем ассоциируется Новый Год у Вашего близкого человека?',
+                       reply_markup=markup)
+
+    if perehod == 6 and (g.text.strip() == 'С елкой' or g.text.strip() == 'Ну конечно же со снегом' or g.text.strip() == 'С теплыми вечерами вместе' or g.text.strip() == 'Подарки!'):
+        bot.send_photo(g.chat.id, photo7, caption='Вот и твой подарок: ')
+        answer = random.choice(gift_NG)
+        # Отсылаем юзеру сообщение в его чат
+        bot.send_message(g.chat.id, answer)
+
+    if g.text.strip() == 'День рождения':
+        perehod = 10
+        bot.send_message(g.chat.id, 'Хорошо, тогда ответь на следующие вопросы и я подберу подарок.')
+
+        markup = types.ReplyKeyboardMarkup(resize_keyboard=True)
+        item1 = types.KeyboardButton('от 18 до 25')
+        item2 = types.KeyboardButton('от 26 до 35')
+        item3 = types.KeyboardButton('35 и более')
+        markup.add(item1, item2, item3)
+        bot.send_photo(g.chat.id, photo10, caption='Скольок лет вашему близкому человеку ?:', reply_markup=markup)
+    if perehod == 10 and (g.text.strip() == 'от 18 до 25' or g.text.strip() == 'от 26 до 35' or g.text.strip() == '35 и более'):
+        perehod = 11
+        markup = types.ReplyKeyboardMarkup(resize_keyboard=True)
+        item1 = types.KeyboardButton('Девушка')
+        item2 = types.KeyboardButton('Жена')
+        item3 = types.KeyboardButton('Сестра')
+        item4 = types.KeyboardButton('Подруга')
+        markup.add(item1, item2, item3, item4)
+        bot.send_photo(g.chat.id, photo11 , caption='Кем она вам прихожится ?:',reply_markup=markup)
+    if perehod == 11 and (g.text.strip() == 'Девушка' or g.text.strip() == 'Жена' or g.text.strip() == 'Сестра' or g.text.strip() == 'Подруга'):
+        perehod = 13
+        chet = 4
+        markup = types.ReplyKeyboardMarkup(resize_keyboard=True)
+        item1 = types.KeyboardButton('Да')
+        item2 = types.KeyboardButton('Нет')
+        markup.add(item1, item2)
+        bot.send_photo(g.chat.id, photo12, caption='Следит ли ваш близкий человек за фигурой', reply_markup=markup)
+    if perehod == 13 and (g.text.strip() == 'Да'):
+        perehod = 14
+        markup = types.ReplyKeyboardMarkup(resize_keyboard=True)
+        item1 = types.KeyboardButton('Да, конечно')
+        item2 = types.KeyboardButton('Не всегда')
+        markup.add(item1, item2)
+        bot.send_photo(g.chat.id, photo13, caption='А она занимается каким-то видом спорта ?', reply_markup=markup)
+    if perehod == 14 and (g.text.strip() == 'Да, конечно'):
+        perehod = 0
+        bot.send_photo(g.chat.id, photo7, caption='Вот и твой подарок: ')
+        answer = random.choice(sport_DR)
+        # Отсылаем юзеру сообщение в его чат
+        bot.send_message(g.chat.id, answer)
+    if (perehod == 14) and (g.text.strip() == 'Не всегда'):
+        perehod = 15
+        markup = types.ReplyKeyboardMarkup(resize_keyboard=True)
+        item1 = types.KeyboardButton('Конечно')
+        item2 = types.KeyboardButton('Она вечно занята')
+        markup.add(item1, item2)
+        bot.send_photo(g.chat.id, photo14, caption='Тогда может быть у нее есть какоето хобби ?', reply_markup=markup)
+    if perehod == 15 and (g.text.strip() == 'Конечно'):
+        perehod = 16
+        markup = types.ReplyKeyboardMarkup(resize_keyboard=True)
+        item1 = types.KeyboardButton('Конечно любит')
+        item2 = types.KeyboardButton('Нет, не любит')
+        markup.add(item1, item2)
+        bot.send_photo(g.chat.id, photo15, caption='Любит ли она творчество ?', reply_markup=markup)
+    if perehod == 16 and (g.text.strip() == 'Конечно любит'):
+        perehod = 0
+        bot.send_photo(g.chat.id, photo7, caption='Вот и твой подарок: ')
+        answer = random.choice(ris_DR)
+        # Отсылаем юзеру сообщение в его чат
+        bot.send_message(g.chat.id, answer)
+    if (perehod == 15) and (g.text.strip() == 'Она вечно занята'):
+        perehod = 17
+        markup = types.ReplyKeyboardMarkup(resize_keyboard=True)
+        item1 = types.KeyboardButton('Обожает')
+        item2 = types.KeyboardButton('Не любитель')
+        markup.add(item1, item2)
+        bot.send_photo(g.chat.id, photo16, caption='Может она любит посидеть вечером с вами за настольными играми ?', reply_markup=markup)
+    if perehod == 17 and (g.text.strip() == 'Обожает'):
+        perehod = 0
+        bot.send_photo(g.chat.id, photo7, caption='Вот и твой подарок: ')
+        answer = random.choice(nastol_DR)
+        # Отсылаем юзеру сообщение в его чат
+        bot.send_message(g.chat.id, answer)
+    if perehod == 17 and (g.text.strip() == 'Не любитель'):
+        perehod = 18
+        markup = types.ReplyKeyboardMarkup(resize_keyboard=True)
+        item1 = types.KeyboardButton('Отдохнуть')
+        item2 = types.KeyboardButton('Получить подарок')
+        markup.add(item1, item2)
+        bot.send_photo(g.chat.id, photo17, caption='Она бы предпочла получить что-то из косметики или отдохнуть на какой нибудь процедуре ?', reply_markup=markup)
+    if perehod == 18 and (g.text.strip() == 'Отдохнуть'):
+        perehod = 0
+        bot.send_photo(g.chat.id, photo7, caption='Вот и твоя поездочка: ')
+        answer = random.choice(biutiotdih_DR)
+        # Отсылаем юзеру сообщение в его чат
+        bot.send_message(g.chat.id, answer)
+    if perehod == 18 and (g.text.strip() == 'Получить подарок'):
+        perehod = 0
+        bot.send_photo(g.chat.id, photo7, caption='Вот и твой подарок: ')
+        answer = random.choice(krasota_DR)
+        # Отсылаем юзеру сообщение в его чат
+        bot.send_message(g.chat.id, answer)
+    if perehod == 13 and (g.text.strip() == 'Нет'):
+        perehod = 19
+        markup = types.ReplyKeyboardMarkup(resize_keyboard=True)
+        item1 = types.KeyboardButton('Очень')
+        item2 = types.KeyboardButton('Она любит веселитьcя')
+        markup.add(item1, item2)
+        bot.send_photo(g.chat.id, photo18, caption='Может ваш близкий человек серьезная леди ?', reply_markup=markup)
+    if perehod == 19 and (g.text.strip() == 'Очень'):
+        perehod = 20
+        markup = types.ReplyKeyboardMarkup(resize_keyboard=True)
+        item1 = types.KeyboardButton('Очень хочу')
+        item2 = types.KeyboardButton('Очень не хочу')
+        markup.add(item1, item2)
+        bot.send_photo(g.chat.id, photo19, caption='Вы хотите удивить ее невероятным подарком ?', reply_markup=markup)
+    if perehod == 20 and (g.text.strip() == 'Очень хочу'):
+        perehod = 0
+        bot.send_photo(g.chat.id, photo7, caption='Вот и твой подарок: ')
+        answer = random.choice(daddy_DR)
+        # Отсылаем юзеру сообщение в его чат
+        bot.send_message(g.chat.id, answer)
+    if perehod == 20 and (g.text.strip() == 'Очень не хочу'):
+        perehod = 21
+        markup = types.ReplyKeyboardMarkup(resize_keyboard=True)
+        item1 = types.KeyboardButton('Больше меня )')
+        item2 = types.KeyboardButton('Не её')
+        markup.add(item1, item2)
+        bot.send_photo(g.chat.id, photo20, caption='Любит ли она машины ?', reply_markup=markup)
+    if perehod == 21 and (g.text.strip() == 'Больше меня )'):
+        perehod = 0
+        bot.send_photo(g.chat.id, photo7, caption='Вот и твой подарок: ')
+        answer = random.choice(mashina_DR)
+        # Отсылаем юзеру сообщение в его чат
+        bot.send_message(g.chat.id, answer)
+    if perehod == 21 and (g.text.strip() == 'Не её'):
+        perehod = 22
+        markup = types.ReplyKeyboardMarkup(resize_keyboard=True)
+        item1 = types.KeyboardButton('Очень рада')
+        item2 = types.KeyboardButton('Не очень')
+        markup.add(item1, item2)
+        bot.send_photo(g.chat.id, photo21, caption='Она была бы рада вещам для офиса ?', reply_markup=markup)
+    if perehod == 22 and (g.text.strip() == 'Очень рада'):
+        perehod = 0
+        bot.send_photo(g.chat.id, photo7, caption='Вот и твой подарок: ')
+        answer = random.choice(ris_DR)
+        # Отсылаем юзеру сообщение в его чат
+        bot.send_message(g.chat.id, answer)
+    if perehod == 22 and (g.text.strip() == 'Не очень'):
+        perehod = 23
+        markup = types.ReplyKeyboardMarkup(resize_keyboard=True)
+        item1 = types.KeyboardButton('Любит пошалить')
+        item2 = types.KeyboardButton('Она за ЗОЖ')
+        markup.add(item1, item2)
+        bot.send_photo(g.chat.id, photo22, caption='Может она любит подарки 18+ ?', reply_markup=markup)
+    if perehod == 23 and (g.text.strip() == 'Любит пошалить'):
+        perehod = 0
+        bot.send_photo(g.chat.id, photo7, caption='Вот и твой подарок: ')
+        answer = random.choice(ris_DR)
+        # Отсылаем юзеру сообщение в его чат
+        bot.send_message(g.chat.id, answer)
+    if  (g.text.strip() == 'Она за ЗОЖ' or g.text.strip() == 'Она любит веселиться'):
+        perehod = 24
+        markup = types.ReplyKeyboardMarkup(resize_keyboard=True)
+        item1 = types.KeyboardButton('Все время с ними')
+        item2 = types.KeyboardButton('Не для неё')
+        markup.add(item1, item2)
+        bot.send_photo(g.chat.id, photo23, caption='Она любит заниматься растениями ?', reply_markup=markup)
+    if perehod == 24 and (g.text.strip() == 'Все время с ними'):
+        perehod = 0
+        bot.send_photo(g.chat.id, photo7, caption='Вот и твой подарок: ')
+        answer = random.choice(ogorod_DR)
+        # Отсылаем юзеру сообщение в его чат
+        bot.send_message(g.chat.id, answer)
+    if perehod == 24 and (g.text.strip() == 'Не для неё'):
+        perehod = 25
+        markup = types.ReplyKeyboardMarkup(resize_keyboard=True)
+        item1 = types.KeyboardButton('Она домохозяйка')
+        item2 = types.KeyboardButton('Не вызовет восторга')
+        markup.add(item1, item2)
+        bot.send_photo(g.chat.id, photo24, caption='Может у нее вызывает восторг вещи для вашего дома ?', reply_markup=markup)
+    if perehod == 25 and (g.text.strip() == 'Она домохозяйка'):
+        perehod = 0
+        bot.send_photo(g.chat.id, photo7, caption='Вот и твой подарок: ')
+        answer = random.choice(hoz_DR)
+        # Отсылаем юзеру сообщение в его чат
+        bot.send_message(g.chat.id, answer)
+    if perehod == 25 and (g.text.strip() == 'Не вызовет восторга'):
+        perehod = 26
+        markup = types.ReplyKeyboardMarkup(resize_keyboard=True)
+        item1 = types.KeyboardButton('Кто же не любит')
+        markup.add(item1)
+        bot.send_photo(g.chat.id, photo25, caption='Любит получать от вас вкусняшки ?', reply_markup=markup)
+    if (perehod == 26) and (g.text.strip() == 'Кто же не любит'):
+        perehod = 0
+        bot.send_photo(g.chat.id, photo7, caption='Вот и твой подарок: ')
+        answer = random.choice(vkus_DR)
+        # Отсылаем юзеру сообщение в его чат
+        bot.send_message(g.chat.id, answer)
+
+
+
+bot.polling(none_stop=True, interval=0)
